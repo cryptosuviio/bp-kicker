@@ -20,5 +20,10 @@ Any blockchain user capable of issuing transactions can call the `bpkicker::kick
 
 `$ example command here`
 
+## Verifying the build
+Build the contract by running `./build.sh`.
+
+Contract is built with CDT 1.7.0, and resulting WASM SHA256 checksum is `3f74ebe3407a3f7d20bbd071b9dd69dc62761f12ca631288ec50af123b7eedee`.
+
 ## About the Author
 **Ville Sundell** is the CTO of [CRYPTOSUVI](https://www.cryptosuvi.io/), a block producer on Telos.
