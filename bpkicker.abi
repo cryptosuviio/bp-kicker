@@ -1,0 +1,32 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "kick",
+            "base": "",
+            "fields": [
+                {
+                    "name": "bp",
+                    "type": "name"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "kick",
+            "type": "kick",
+            "ricardian_contract": "Kicks a BP if conditions are met. Current conditions are:\n - 50 missed blocks, counted by the Telos system contract.\n\n### Intent\nINTENT. By invoking this function, anyone can bring BPs that meet the conditions offline.\n\n### Term\nTERM. This Contract expires at the conclusion of code execution."
+        }
+    ],
+    "tables": [],
+    "ricardian_clauses": [
+        {
+            "id": "UserAgreement",
+            "body": "Purpose of this smart contract is to provide BPs reliability tool, that any blockchain user can use to bring a non-working BP offline.\n\nFor more information, see the [official repository](https://github.com/cryptosuviio/bp-kicker)."
+        }
+    ],
+    "variants": []
+}
