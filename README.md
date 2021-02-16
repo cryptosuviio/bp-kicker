@@ -31,7 +31,9 @@ Any blockchain user capable of issuing transactions can call the `bpkicker::kick
 
 In order to kick `cryptosuviio` after over 50 missed blocks, anyone can run:
 
-`$ cleos push action bpkicker1111 kick ["cryptosuviio"]`
+`$ cleos push action bpkicker1111 kick ["cryptosuviio"] -p youraccountname`
+
+> BP being `cryptosuviio` in this example, and BP Kicker residing at `bpkicker1111` (account on Telos testnet).
 
 ## Verifying the build
 Build the contract by running `./build.sh`.
