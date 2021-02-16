@@ -6,7 +6,6 @@
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
 
-#include <eosio.system/exchange_state.hpp>
 #include <eosio.system/native.hpp>
 
 #include <cmath>
@@ -569,7 +568,6 @@ namespace eosiosystem {
          producers_table             _producers;
          global_state_singleton      _global;
          eosio_global_state          _gstate;
-         rammarket                   _rammarket;
 		   rex_pool_table          	 _rexpool;
          rex_fund_table          	 _rexfunds;
          rex_balance_table       	 _rexbalance;
@@ -611,17 +609,6 @@ namespace eosiosystem {
           */
          system_contract( name s, name code, datastream<const char*> ds );
          ~system_contract();
-
-         /**
-          * Returns the core symbol by system account name
-          *
-          * @param system_account - the system account to get the core symbol for.
-          */
-         static symbol get_core_symbol( name system_account = "eosio"_n ) {
-            rammarket rm(system_account, system_account.value);
-            const static auto sym = get_core_symbol( rm );
-            return sym;
-         }
 
          // Actions:
          /**
@@ -1280,7 +1267,7 @@ namespace eosiosystem {
          void setpayrates(uint64_t inflation, uint64_t worker);
 
          [[eosio::action]]
-         void distviarex(name from, asset amount); 
+         void distviarex(name from, asset amount);
 
          using init_action = eosio::action_wrapper<"init"_n, &system_contract::init>;
          using setacctram_action = eosio::action_wrapper<"setacctram"_n, &system_contract::setacctram>;
@@ -1328,12 +1315,6 @@ namespace eosiosystem {
 
       private:
          // Implementation details:
-
-         static symbol get_core_symbol( const rammarket& rm ) {
-            auto itr = rm.find(ramcore_symbol.raw());
-            check(itr != rm.end(), "system contract must first be initialized");
-            return itr->quote.balance.symbol;
-         }
 
          //defined in eosio.system.cpp
          static eosio_global_state get_default_parameters();
