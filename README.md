@@ -18,14 +18,18 @@ When called, BP Kicker will check if missed blocks for this **rotation** (`misse
 ## Enabling BP Kicker for your producer
 To enable BP Kicker for your producer, you only need to create a permission named `bpkicker`, and allow the BP Kicker contract to use it.
 
-1. To enable BP Kicker on Telos testnet (BP being `cryptosuviio` in this example):
+To enable BP Kicker, you need to run **both of these commands**:
+
 `$ cleos set account permission cryptosuviio bpkicker bpkicker1111 --add-code`
 
-2. To restrict the @bpkicker role to "unregprod" only, you must run:
 `$ cleos set action permission cryptosuviio eosio unregprod bpkicker`
+
+> BP being `cryptosuviio` in this example, and BP Kicker residing at `bpkicker1111` (account on Telos testnet).
 
 ## Using BP Kicker
 Any blockchain user capable of issuing transactions can call the `bpkicker::kick` action by:
+
+In order to kick `cryptosuviio` after over 50 missed blocks, anyone can run:
 
 `$ cleos push action bpkicker1111 kick ["cryptosuviio"]`
 
@@ -35,4 +39,4 @@ Build the contract by running `./build.sh`.
 Contract is built with CDT 1.7.0, and resulting WASM SHA256 checksum is `3f74ebe3407a3f7d20bbd071b9dd69dc62761f12ca631288ec50af123b7eedee`.
 
 ## About the Author
-**Ville Sundell** is the CTO of [CRYPTOSUVI](https://www.cryptosuvi.io/), a block producer on Telos.
+**[Ville Sundell](https://www.linkedin.com/in/villesundell)** is the CTO of [CRYPTOSUVI](https://www.cryptosuvi.io/), a block producer on Telos.
