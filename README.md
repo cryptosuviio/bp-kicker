@@ -26,6 +26,15 @@ To enable BP Kicker, you need to run **both of these commands**:
 
 > BP being `cryptosuviio` in this example, and BP Kicker residing at `bpkicker1111` (account on Telos testnet).
 
+## Disabling BP Kicker for your producer
+In case you need to disable BP Kicker, you can run the following commands:
+
+`$ cleos set action permission cryptosuviio eosio unregprod NULL`
+
+`$ cleos set account permission cryptosuviio bpkicker NULL`
+
+> BP being `cryptosuviio` in this example.
+
 ## Using BP Kicker
 Any blockchain user capable of issuing transactions can call the `bpkicker::kick` action by:
 
