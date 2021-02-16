@@ -4,7 +4,7 @@ Unlike other EOSIO chains, Telos system contract keeps track of missed block for
 Because of this unique feature, we can have a contract that can kick (if permitted by the BP) a BP when a certain threshold of missed blocks is reached.
 
 ## Read before use
-**This is a tool of last resort**: if you are able to re-register during the same rotation, anyone can immediately `unregprod` you again, since your `missed_blocks_per_rotation` would be over the `MISSED_BLOCKS_THRESHOLD`. If you want to re-register during the same rotation you were kicked from using the BP Kicker, you may want temporarily remove the `bpkicker` permission.
+**This is a tool of last resort**: if you are able to re-register during the same rotation, anyone can immediately `unregprod` you again, since your `missed_blocks_per_rotation` would be over the `MISSED_BLOCKS_THRESHOLD`. If you want to re-register during the same rotation you were kicked from using the BP Kicker, you may want temporarily remove the `bpkicker` permission. See "*Disabling BP Kicker for your producer*" for detailed instructions.
 
 Also it's worth noting that on Telos `unregprod` can be called even when unregistered. This may lead to a ton of unregprod actions on your producer account after you have been kicked by the BP Kicker. However, this is only an aesthetic nuisance, since the caller pays for the resources, not you.
 
