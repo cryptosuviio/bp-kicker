@@ -42,8 +42,8 @@ class [[eosio::contract("contract")]] _contract : public eosio::contract {
          auto& producer = producers.get(bp.value, "BP not found");
 
          check(producer.missed_blocks_per_rotation > MISSED_BLOCKS_THRESHOLD, "Not enough blocks missed");
+         check(producer.is_active, "BP not active. Already kicked?");
 
-         /* We don't need to check if the BP is active, eosio::unregprod() will do that for us. */
          eosiosystem::system_contract::unregprod_action unregprod("eosio"_n, {bp, KICKER_ROLE});
          unregprod.send(bp);
       }

@@ -47,7 +47,7 @@ In order to kick `cryptosuviio` after over 50 missed blocks, anyone can run:
 ## Verifying the build
 Build the contract by running `./build.sh`.
 
-Contract is built with CDT 1.7.0, and resulting WASM SHA256 checksum is `3f74ebe3407a3f7d20bbd071b9dd69dc62761f12ca631288ec50af123b7eedee`.
+Contract is built with CDT 1.7.0, and resulting WASM SHA256 checksum is `71763ce35a58e3ea6244a028f1ef600d88393bde2d98fa165b7af0778364a187`.
 
 ## About the Author
 **[Ville Sundell](https://www.linkedin.com/in/villesundell)** is the CTO of [CRYPTOSUVI](https://www.cryptosuvi.io/), a block producer on Telos.
