@@ -6,8 +6,6 @@ Because of this unique feature, we can have a contract that can kick (if permitt
 ## Read before use
 **This is a tool of last resort**: if you are able to re-register during the same rotation, anyone can immediately `unregprod` you again, since your `missed_blocks_per_rotation` would be over the `MISSED_BLOCKS_THRESHOLD`. If you want to re-register during the same rotation you were kicked from using the BP Kicker, you may want temporarily remove the `bpkicker` permission. See "*Disabling BP Kicker for your producer*" for detailed instructions.
 
-Also it's worth noting that on Telos `unregprod` can be called even when unregistered. This may lead to a ton of unregprod actions on your producer account after you have been kicked by the BP Kicker. However, this is only an aesthetic nuisance, since the caller pays for the resources, not you.
-
 **Use only if your producer is stable enough to benefit from this**.
 
 ## How BP Kicker works
@@ -20,11 +18,11 @@ To enable BP Kicker for your producer, you only need to create a permission name
 
 To enable BP Kicker, you need to run **both of these commands**:
 
-`$ cleos set account permission cryptosuviio bpkicker bpkicker1111 --add-code`
+`$ cleos set account permission cryptosuviio bpkicker bpkicker.com --add-code`
 
 `$ cleos set action permission cryptosuviio eosio unregprod bpkicker`
 
-> BP being `cryptosuviio` in this example, and BP Kicker residing at `bpkicker1111` (account on Telos testnet).
+> BP being `cryptosuviio` in this example. The contract is `bpkicker.com` on both, Testnet and Mainnet.
 
 ## Disabling BP Kicker for your producer
 In case you need to disable BP Kicker, you can run the following commands:
@@ -40,9 +38,9 @@ Any blockchain user capable of issuing transactions can call the `bpkicker::kick
 
 In order to kick `cryptosuviio` after over 50 missed blocks, anyone can run:
 
-`$ cleos push action bpkicker1111 kick ["cryptosuviio"] -p youraccountname`
+`$ cleos push action bpkicker.com kick ["cryptosuviio"] -p youraccountname`
 
-> BP being `cryptosuviio` in this example, and BP Kicker residing at `bpkicker1111` (account on Telos testnet).
+> BP being `cryptosuviio` in this example. The contract is `bpkicker.com` on both, Testnet and Mainnet.
 
 ## Verifying the build
 Build the contract by running `./build.sh`.
